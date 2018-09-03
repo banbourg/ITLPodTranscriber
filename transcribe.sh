@@ -11,7 +11,6 @@ for file in *.mp3; do
 
     # Convert to mono-channel flac
 	FLAC_NAME="$BASE_NAME.flac"
-	#echo $FLAC_NAME 
     ffmpeg -i $NEW_NAME -ac 1 -ab 44k $FLAC_NAME
     sleep 60
 	echo "Converted $NEW_NAME to flac"
@@ -24,7 +23,5 @@ for file in *.mp3; do
     # Output into txt file
     python3 transcribe_async.py gs://pod_transcriber/$FLAC_NAME > "$BASE_NAME transcript".txt
 	sleep 120
-
 	
-
 done
