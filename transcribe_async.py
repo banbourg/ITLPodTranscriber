@@ -27,11 +27,13 @@ import pandas
 
 
 elements = ["lutz", "salchow", "toe-loop", "axel", "sal", "quad", "quad loop", "quad sal", "quad toe", "quad lutz"]
+
 sr_skaters = ["Satoko", "Satoko Miyahara", "Evan", "Evan Lysacek", "Midori Ito", "Yuzuru", "Yuzuru Hanyu", "Alina Zagitova",
            "Torvill and Dean", "Evgeny Plushenko", "Shizuka Arakawa", "Elizaveta Tuktamysheva", "Alexandra Trusova",
            "Boyang Jin", "Boyang", "Miki Ando", "Miki", "Kana Muramoto", "Kana", "Tonya Harding", "Tonya",
            "Evgenia Medvedeva", "Evgenia", "Stephane Lambiel", "Stephane", "Deniss Vasiljevs", "Deniss", "Johnny Weir",
            "Kenji Miyamoto", "Kenji", "Shae-Lynn Bourne", "Jeffrey Buttle"]
+
 jgps_1_2 = ["Anastasia Mishina", "Aleksandr Galliamov", "Apollinariia Panfilova", "Dmitry Rylov", "Kseniia Akhanteva",
             "Valerii Kolesov", "Brooke Mcintosh", "Brandon Toste", "Stephen Gogolev", "Mitsuki Sumoto", "Daniel Grassl",
             "Mitsuki", "Donovan", "Jaeseok Kyeong", "Deniss", "Mauro Calcagno", "Aleksa Rakic", "Andrew Torgashev",
@@ -46,12 +48,17 @@ jgps_1_2 = ["Anastasia Mishina", "Aleksandr Galliamov", "Apollinariia Panfilova"
             "Shiika Yoshioka", "Ting Cui", "Anna Kuzmenko", "Misha Ge"]
 
 hosts = ["Lae", "Kat", "Evie", "Clara", "Kite", "Kar", "Karly"]
+
 misc = ["GOE", "rippon", "Grand Prix", "sectionals", "hammer-toe", "leg wrap", "tano", "Gadbois"]
+
 usernames = ["cyberswansp", "daejangie", "quadlutze", "doubleflutz", "tequilda", "axelsandwich", "yogeeta", "liliorum"]
-#fiction = ["Yuri on Ice", "Ginban Kaleidoscope", "Yuuri"]
+
+fiction = ["Yuri on Ice", "Ginban Kaleidoscope", "Yuuri"]
+
 phrase_list = elements + hosts + usernames + misc + jgps_1_2
 
-# [START def_transcribe_gcs]
+
+
 def transcribe_gcs(gcs_uri):
     """Asynchronously transcribes the audio file specified by the gcs_uri."""
     from google.cloud import speech
@@ -64,9 +71,9 @@ def transcribe_gcs(gcs_uri):
         encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
         sample_rate_hertz=44100,
         language_code='en-US',
-        enable_automatic_punctuation=True,
-        enable_speaker_diarization=True,
-        diarization_speaker_count=2,
+        # enable_automatic_punctuation=True,
+        # enable_speaker_diarization=True,
+        # diarization_speaker_count=2,
         speech_contexts=[types.SpeechContext(
             phrases=phrase_list
         )]
@@ -78,20 +85,16 @@ def transcribe_gcs(gcs_uri):
 
     response = operation.result(timeout=10000)
 
-    result = response.results[-1]
 
-    words_info = result.alternatives[0].words
+    # Basic genevieve
+    for result in response.results:
+        print(f"{result.alternatives[0].transcript}")
 
-    # Printing out the output:
-    for word_info in words_info:
-        print("word: '{}', speaker_tag: {}".format(word_info.word,
-                                                   word_info.speaker_tag))
-
-#     # Each result is for a consecutive portion of the audio. Iterate through
-#     # them to get the transcripts for the entire audio file.
-#     for result in response.results:
-#         print(f"{}'.format(result.alternatives[0].transcript))
-# # [END def_transcribe_gcs]
+    # result = response.results[-1]
+    # words_info = result.alternatives[0].words
+    # words_with_tags = []
+    # for word_info in words_info:
+    #     words_with_tags.append((word_info.speaker_tag, word_info.word))
 
 
 if __name__ == '__main__':
