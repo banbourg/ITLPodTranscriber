@@ -16,12 +16,15 @@ for file in *.mp3; do
     echo "Converted $NEW_NAME to flac"
 
     # Upload to google cloud and set to public
-    gsutil cp $FLAC_NAME gs://pod_transcriber
-    gsutil acl ch -u AllUsers:R gs://pod_transcriber/$FLAC_NAME
+    gsutil cp $FLAC_NAME gs://$1
+    gsutil acl ch -u AllUsers:R gs://$1/$FLAC_NAME
     echo "Uploaded $FLAC_NAME to gcloud"
 
     # Output into txt file
     python3 transcribe_async.py gs://pod_transcriber/$FLAC_NAME > "$BASE_NAME transcript".txt
-    sleep 120
+    sleep 800
+	
+    # Delete the object from the bucket
+    gsutil rm gs://$1/$FLAC_NAME
 	
 done
