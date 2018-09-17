@@ -34,6 +34,13 @@ sr_skaters = ["Satoko", "Satoko Miyahara", "Evan", "Evan Lysacek", "Midori Ito",
            "Evgenia Medvedeva", "Evgenia", "Stephane Lambiel", "Stephane", "Deniss Vasiljevs", "Deniss", "Johnny Weir",
            "Kenji Miyamoto", "Kenji", "Shae-Lynn Bourne", "Jeffrey Buttle"]
 
+sr_skaters_k = ["Brian Orser","Valentina Marchei","Ondrej Hotarek", "Yu Xiaoyu", "Xiaoyu", "Ondrej", "Wakaba Higuchi", "Mariah Bell",
+                "Ashley Wagner","Josh Farris","Sofia Samodurova","Mako Yamashita","Kaori Sakamoto","Shoma Uno","Shoma","Dmitri Aliev","Kolyada",
+                "Mikhail","Mikhail Kolyada","Andrei Lazukin","Mihoko Higuchi","Mihoko","Kazuki Tomono","Kazuki","Satoko Miyahara", "Satoko",
+                "Eunsoo Lim","Eunsoo","Nam Nguyen","Nam","Michal Brezina","Jimmy Ma","Jimmy","Vincent Zhou","Vincent","Madison Hubbell",
+                "Hubbell","Zachary Donohue","Donohue","Christina Carreira","Anthony Ponomarenko","Misato Komatsubara","Tim Koleto","KoKo",
+                "Elladj Balde"]
+
 jgps_1_2 = ["Anastasia Mishina", "Aleksandr Galliamov", "Apollinariia Panfilova", "Dmitry Rylov", "Kseniia Akhanteva",
             "Valerii Kolesov", "Brooke Mcintosh", "Brandon Toste", "Stephen Gogolev", "Mitsuki Sumoto", "Daniel Grassl",
             "Mitsuki", "Donovan", "Jaeseok Kyeong", "Deniss", "Mauro Calcagno", "Aleksa Rakic", "Andrew Torgashev",
@@ -47,15 +54,25 @@ jgps_1_2 = ["Anastasia Mishina", "Aleksandr Galliamov", "Apollinariia Panfilova"
             "Zachary Lagha", "Eva Kuts", "Dmitrii Mikhailov", "Rognatik", "Barshak", "Alena Kostornaia", "Alena Kanysheva",
             "Shiika Yoshioka", "Ting Cui", "Anna Kuzmenko", "Misha Ge"]
 
+jgps_3_4 = ["Yelim Kim", "Kseniia Sinitsyna","Kirill Iakovlev","Yuto Kishina","Arina Ushakova","Maxim Nekrasov","Avonley Nguyen",
+            "Vadym Kolesnik","Darya Popova","Volodymyr Byelikov","Anastasia Tarakanova", "Rion Sumiyoshi", "Petr Gumennik","Tomoki Hiwatashi",
+            "Adam Siao Him Fa","Yuma Kagiyama","Polina Ivanenko","Daniil Karpov","Ksenia Konkina","Alexander Vakhnov"]
+
 hosts = ["Lae", "Kat", "Evie", "Clara", "Kite", "Kar", "Karly"]
+
+hosts_k = ["Yogeeta","Andrea","Maryam"]
 
 misc = ["GOE", "rippon", "Grand Prix", "sectionals", "hammer-toe", "leg wrap", "tano", "Gadbois"]
 
+misc_k = ["Biellmann","Dana-Farber","Ondrej Nepela"]
+
 usernames = ["cyberswansp", "daejangie", "quadlutze", "doubleflutz", "tequilda", "axelsandwich", "yogeeta", "liliorum"]
+
+usernames_k = ["mossyzinc", "starryyuzu", "luckyyloopss"]
 
 fiction = ["Yuri on Ice", "Ginban Kaleidoscope", "Yuuri"]
 
-phrase_list = elements + hosts + usernames + misc + jgps_1_2
+phrase_list = elements + hosts + usernames + misc + jgps_1_2 + sr_skaters_k + jgps_3_4 + hosts_k + usernames_k + misc_k
 
 
 
